@@ -22,9 +22,12 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+
+	versionlib "k8s.io/kubernetes/pkg/version"
 )
 
 var (
+	kubeadmVersion        = "use-kubeadm-version"
 	kubeReleaseBucketURL  = "https://dl.k8s.io"
 	kubeReleaseRegex      = regexp.MustCompile(`^v?(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)([-0-9a-zA-Z_\.+]*)?$`)
 	kubeReleaseLabelRegex = regexp.MustCompile(`^[[:lower:]]+(-[-\w_\.]+)?$`)
@@ -100,7 +103,9 @@ func KubernetesIsCIVersion(version string) bool {
 // Internal helper: returns normalized build version (with "v" prefix if needed)
 // If input doesn't match known version pattern, returns empty string.
 func normalizedBuildVersion(version string) string {
-	if kubeReleaseRegex.MatchString(version) {
+	if version == kubeadmVersion {
+		return versionlib.Get().GitVersion
+	} else if kubeReleaseRegex.MatchString(version) {
 		if strings.HasPrefix(version, "v") {
 			return version
 		}
