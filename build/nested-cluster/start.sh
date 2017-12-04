@@ -41,7 +41,7 @@ start_worker ()
   docker load -i /kube-proxy-amd64.tar
 
   # Start kubeadm.
-  /usr/bin/kubeadm join --token=abcdef.abcdefghijklmnop --skip-preflight-checks 172.18.0.2:6443 2>&1
+  /usr/bin/kubeadm join --token=abcdef.abcdefghijklmnop --skip-preflight-checks --discovery-token-unsafe-skip-ca-verification 172.18.0.2:6443 2>&1
 }
 
 start_master ()
