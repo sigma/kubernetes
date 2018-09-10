@@ -40,7 +40,7 @@ replace (
 	k8s.io/sample-controller v0.0.0-dev => ./staging/src/k8s.io/sample-controller
 )
 
-replace gonum.org/v1/gonum v0.0.0-20180726124543-cebdade430cc => github.com/sigma/gonum v0.0.0-00000000000000-74c8077506f5
+replace github.com/google/cadvisor v0.0.0-20180614220604-f834c0f4c100 => github.com/sigma/cadvisor v0.0.0-00000000000000-f53c54e58aba
 
 replace github.com/heketi/heketi v0.0.0-20170623005005-aaf40619d85f => github.com/sigma/heketi v0.0.0-00000000000000-d2837a641bb8
 
@@ -203,6 +203,7 @@ require (
 	github.com/satori/go.uuid v1.2.0
 	github.com/seccomp/libseccomp-golang v0.0.0-20150813023252-1b506fc7c24e
 	github.com/shurcooL/sanitized_anchor_name v0.0.0-20151028001915-10ef21a441db
+	github.com/sigma/go-inotify v0.0.0-20180910173200-6e160422f769
 	github.com/sirupsen/logrus v0.0.0-20170822132746-89742aefa4b2
 	github.com/spf13/afero v0.0.0-20160816080757-b28a7effac97
 	github.com/spf13/cast v0.0.0-20160730092037-e31f36ffc91a

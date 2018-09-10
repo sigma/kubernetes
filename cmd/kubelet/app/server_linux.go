@@ -18,7 +18,7 @@ package app
 
 import (
 	"github.com/golang/glog"
-	"golang.org/x/exp/inotify"
+	inotify "github.com/sigma/go-inotify"
 )
 
 func watchForLockfileContention(path string, done chan struct{}) error {

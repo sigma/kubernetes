@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"golang.org/x/exp/inotify"
+	inotify "github.com/sigma/go-inotify"
 
 	"k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/wait"
